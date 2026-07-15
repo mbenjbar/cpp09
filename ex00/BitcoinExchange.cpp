@@ -39,12 +39,26 @@ bool process_line(std::string &line, double &btc_val)
     }
 
     std::string::size_type n = date.find_first_not_of("0123456789");
-    std::string y_str = date.substr(0, n);
-    double year = std::strtod(y_str.c_str(), NULL);
-    if(year > std::numeric_limits<double>::max() || year <= 0)
+    if (date.size() != 10)
     {
         std::cerr << "Error: bad input => " << line << std::endl;
         return (false);
+    }
+    if (date[4] != '-' || date[7] != '-')
+    {
+        std::cerr << "Error: bad input => " << line << std::endl;
+        return (false);
+    }
+
+    for (size_t i = 0; i < date.size(); i++)
+    {
+        if (i == 4 || i == 7)
+            continue;
+        if (!std::isdigit(date[i]))
+        {
+            std::cerr << "Error: bad input => " << line << std::endl;
+            return (false);
+        }
     }
 }
 
