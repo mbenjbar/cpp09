@@ -34,7 +34,7 @@ int main(int ac, char **av)
     while (std::getline(input_file, line))
     {
         if (process_line(line, btc_val) == true)
-			output_print(data, line, btc_val);
+			output_print(data, line, btc_val); //line hold the date now
     }
     return 0;
 }
