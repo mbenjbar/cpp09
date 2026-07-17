@@ -71,7 +71,6 @@ bool process_line(std::string &line, double &btc_val)
     size_t pos;
     std::string date;
     std::string val;
-    
 
     pos = line.find(" | ");
     if (pos == std::string::npos)
