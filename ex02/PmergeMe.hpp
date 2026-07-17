@@ -47,6 +47,9 @@ class PmergeMe
 
         template <typename Container>
         void merge_insert(Container &container);
+        
+        template <typename Container>
+        void sort_pending(Container &container, std::vector<PendingNode> &, std::vector<PendingNode> &);
 
         template <typename Container>
         double sort(Container &container);
